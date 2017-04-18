@@ -10,7 +10,7 @@ public class ArrayListFacisa {
 
 	private int tamanho;
 	//ArrayList <Object> ArrayFacisa = new ArrayList<Object>(tamanho);
-	Object [] ArrayFacisa = new Object[tamanho];
+	private Object [] ArrayFacisa; 
 	private int contPosicoes;
 	/**
 	 * Constructor 
@@ -18,9 +18,10 @@ public class ArrayListFacisa {
 	 * @param tamanho the initial size of ArrayList
 	 */
 	public ArrayListFacisa(int tamanho) {
+		ArrayFacisa = new Object[tamanho];
 		this.tamanho = tamanho;
 	}
-	
+
 	/**
 	 * Return the size of ArrayList.
 	 * 
@@ -38,9 +39,9 @@ public class ArrayListFacisa {
 	 */
 	public void add(Object obj) {
 		if(contPosicoes == ArrayFacisa.length){
-			dobraTamanho;
+			dobraTamanho();
 		}
-		ArrayFacisa[contPosicoes++] = obj;
+		ArrayFacisa[contPosicoes] = obj;
 		contPosicoes ++;
 		
 	}
@@ -51,8 +52,13 @@ public class ArrayListFacisa {
 	 * @param obj
 	 */
 	public void dobraTamanho(){
-		Object [] ArrayFacisa = new Object[tamanho];
-	}
+		Object [] ArrayFacisa2 = new Object[ArrayFacisa.length *2];
+		for (int i = 0; i <= ArrayFacisa.length; i++){
+			ArrayFacisa2[i] = ArrayFacisa[i];
+		}
+		ArrayFacisa = null;
+		ArrayFacisa = ArrayFacisa2;
+	} 
 	
 	public void copiaElementos(){
 		
