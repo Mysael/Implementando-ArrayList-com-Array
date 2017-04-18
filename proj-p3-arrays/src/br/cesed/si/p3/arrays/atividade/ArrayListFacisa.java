@@ -3,7 +3,7 @@ package br.cesed.si.p3.arrays.atividade;
 /**
  * Class for my own implementation of ArrayList
  * 
- * @author aluno
+ * @author Mysael
  *
  */
 public class ArrayListFacisa {
@@ -18,8 +18,8 @@ public class ArrayListFacisa {
 	 * @param tamanho the initial size of ArrayList
 	 */
 	public ArrayListFacisa(int tamanho) {
-		ArrayFacisa = new Object[tamanho];
 		this.tamanho = tamanho;
+		ArrayFacisa = new Object[tamanho];
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class ArrayListFacisa {
 		if(contPosicoes == ArrayFacisa.length){
 			dobraTamanho();
 		}
-		ArrayFacisa[contPosicoes] = obj;
+		ArrayFacisa[contPosicoes+1] = obj;
 		contPosicoes ++;
 		
 	}
@@ -68,18 +68,18 @@ public class ArrayListFacisa {
 		for (int i = 0; i < ArrayFacisa.length; i++){
 			if(ArrayFacisa[i] == obj){
 				ArrayFacisa[i] = null;
-				if (i++ <= ArrayFacisa.length && ArrayFacisa[i] == null){
-					ArrayFacisa[i] = ArrayFacisa[i++];		
+				ordenaArray();
 				}
 				
 			}
 		}
-	}
 	
 	public void ordenaArray(){
 		for (int i = 0; i < ArrayFacisa.length; i++){
 			if(ArrayFacisa[i] == null){
+				if (i+1 <= ArrayFacisa.length){
 				ArrayFacisa[i] = ArrayFacisa[i++];
+				}
 			}
 		}
 	}
@@ -103,8 +103,11 @@ public class ArrayListFacisa {
 	 * @return
 	 */
 	public int findPosition(Object obj) {
-		
-		return 0;
+		for(int i = 0; i <= ArrayFacisa.length; i++){
+			if(ArrayFacisa[i] == obj){
+				int posicao = i;
+			}return posicao;
+		}
 	}
 	
 	public void printAllElements() {
